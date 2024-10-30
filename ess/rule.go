@@ -1,6 +1,6 @@
 package ess
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/hiifong/aliyungo/common"
 
 type AdjustmentType string
 

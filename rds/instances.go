@@ -6,7 +6,7 @@ import (
 
 	"log"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 type DBInstanceIPArray struct {
@@ -878,7 +878,6 @@ type ModifyDatabaseDescriptionArgs struct {
 }
 
 // ModifyDBDescription create rds database description
-//
 func (client *Client) ModifyDatabaseDescription(args *ModifyDatabaseDescriptionArgs) error {
 	response := common.Response{}
 	return client.Invoke("ModifyDBDescription", args, &response)
@@ -948,7 +947,6 @@ type ModifyAccountDescriptionArgs struct {
 }
 
 // ModifyDBDescription create rds database description
-//
 func (client *Client) ModifyAccountDescription(args *ModifyAccountDescriptionArgs) error {
 	response := common.Response{}
 	return client.Invoke("ModifyAccountDescription", args, &response)

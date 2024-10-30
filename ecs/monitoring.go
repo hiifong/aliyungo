@@ -1,8 +1,8 @@
 package ecs
 
 import (
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/common"
+	"github.com/hiifong/aliyungo/util"
 )
 
 type DescribeInstanceMonitorDataArgs struct {
@@ -12,7 +12,6 @@ type DescribeInstanceMonitorDataArgs struct {
 	Period     int //Default 60s
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&instancemonitordatatype
 type InstanceMonitorDataType struct {
 	InstanceId        string
@@ -59,7 +58,6 @@ type DescribeEipMonitorDataArgs struct {
 	Period       int //Default 60s
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&eipmonitordatatype
 type EipMonitorDataType struct {
 	EipRX        int
@@ -99,7 +97,6 @@ type DescribeDiskMonitorDataArgs struct {
 	Period    int //Default 60s
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&diskmonitordatatype
 type DiskMonitorDataType struct {
 	DiskId    string

@@ -2,8 +2,8 @@ package cs
 
 import (
 	"fmt"
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/ecs"
+	"github.com/hiifong/aliyungo/common"
+	"github.com/hiifong/aliyungo/ecs"
 	"net/http"
 	"net/url"
 	"time"
@@ -70,7 +70,7 @@ type ScalingGroup struct {
 	// deploymentset
 	DeploymentSetId *string `json:"deploymentset_id"`
 	DesiredSize     *int64  `json:"desired_size,omitempty"`
-	
+
 	PolarDBIds []string `json:"polardb_ids"`
 }
 
@@ -246,7 +246,7 @@ func (client *Client) UpdateNodePool(clusterId string, nodePoolId string, reques
 	return response, nil
 }
 
-//Deprecated
+// Deprecated
 func (client *Client) DeleteNodePool(clusterId, nodePoolId string) error {
 	return client.Invoke("", http.MethodDelete, fmt.Sprintf("/clusters/%s/nodepools/%s", clusterId, nodePoolId), nil, nil, nil)
 }

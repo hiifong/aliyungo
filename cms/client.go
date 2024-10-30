@@ -5,7 +5,7 @@ import (
 
 	"os"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 type Client struct {
@@ -55,7 +55,7 @@ const (
 	CMSServiceCode     = "cms"
 )
 
-//TODO 旧的API
+// TODO 旧的API
 // NewClient creates a new instance of ECS client
 func NewClient(accessKeyId, accessKeySecret string) *Client {
 	return &Client{

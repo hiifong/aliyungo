@@ -15,8 +15,8 @@ import (
 
 	"fmt"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/common"
+	"github.com/hiifong/aliyungo/util"
 )
 
 const (

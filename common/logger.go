@@ -2,7 +2,7 @@ package common
 
 import (
 	"encoding/json"
-	"github.com/denverdino/aliyungo/common/utils"
+	"github.com/hiifong/aliyungo/common/utils"
 	"io"
 	"log"
 	"os"

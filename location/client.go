@@ -3,7 +3,7 @@ package location
 import (
 	"os"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 type Client struct {

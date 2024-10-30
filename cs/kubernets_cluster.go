@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/denverdino/aliyungo/ecs"
+	"github.com/hiifong/aliyungo/ecs"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 type TaskState string
@@ -39,7 +39,7 @@ type MaintenanceWindow struct {
 	WeeklyPeriod    WeeklyPeriod    `json:"weekly_period"`
 }
 
-//modify cluster,include DeletionProtection and so on
+// modify cluster,include DeletionProtection and so on
 type ModifyClusterArgs struct {
 	DeletionProtection bool              `json:"deletion_protection"`
 	ResourceGroupId    string            `json:"resource_group_id"`
@@ -86,17 +86,17 @@ type Event struct {
 	Source    string
 }
 
-//modify cluster
+// modify cluster
 func (client *Client) ModifyCluster(clusterId string, args *ModifyClusterArgs) error {
 	return client.Invoke("", http.MethodPut, "/api/v2/clusters/"+clusterId, nil, args, nil)
 }
 
-//upgrade cluster
+// upgrade cluster
 func (client *Client) UpgradeCluster(clusterId string, args *UpgradeClusterArgs) error {
 	return client.Invoke("", http.MethodPost, fmt.Sprintf("/api/v2/clusters/%s/upgrade", clusterId), nil, args, nil)
 }
 
-//cancel upgrade cluster
+// cancel upgrade cluster
 func (client *Client) CancelUpgradeCluster(clusterId string) error {
 	return client.Invoke("", http.MethodPost, fmt.Sprintf("/api/v2/clusters/%s/upgrade/cancel", clusterId), nil, nil, nil)
 }
@@ -110,7 +110,7 @@ func (client *Client) QueryUpgradeClusterResult(clusterId string) (*UpgradeClust
 	return cluster, nil
 }
 
-//Cluster Info
+// Cluster Info
 type KubernetesClusterType string
 
 var (
@@ -209,7 +209,7 @@ type ClusterArgs struct {
 	CisEnabled bool `json:"cis_enabled"`
 }
 
-//addon
+// addon
 type Addon struct {
 	Name     string `json:"name"`
 	Version  string `json:"version"`
@@ -217,7 +217,7 @@ type Addon struct {
 	Disabled bool   `json:"disabled"` // 是否禁止默认安装
 }
 
-//taint
+// taint
 type Taint struct {
 	Key    string `json:"key"`
 	Value  string `json:"value"`
@@ -326,7 +326,7 @@ type ScaleOutKubernetesClusterRequest struct {
 	RdsInstances      []string ` json:"rds_instances"`
 }
 
-//datadiks
+// datadiks
 type DataDisk struct {
 	Category             string `json:"category"`
 	KMSKeyId             string `json:"kms_key_id"`
@@ -349,7 +349,7 @@ type NodePoolDataDisk struct {
 	PerformanceLevel     string `json:"performance_Level"`
 }
 
-//runtime
+// runtime
 type Runtime struct {
 	Name                       string   `json:"name"`
 	Version                    string   `json:"version"`
@@ -358,14 +358,14 @@ type Runtime struct {
 	AvailableNetworkComponents []string `json:"availableNetworkComponents,omitempty"`
 }
 
-//DelicatedKubernetes
+// DelicatedKubernetes
 type DelicatedKubernetesClusterCreationRequest struct {
 	ClusterArgs
 	MasterArgs
 	WorkerArgs
 }
 
-//ManagedKubernetes
+// ManagedKubernetes
 type ManagedKubernetesClusterCreationRequest struct {
 	ClusterArgs
 	WorkerArgs
@@ -373,7 +373,7 @@ type ManagedKubernetesClusterCreationRequest struct {
 
 //Validate
 
-//Create DelicatedKubernetes Cluster
+// Create DelicatedKubernetes Cluster
 func (client *Client) CreateDelicatedKubernetesCluster(request *DelicatedKubernetesClusterCreationRequest) (*ClusterCommonResponse, error) {
 	response := &ClusterCommonResponse{}
 	path := "/clusters"
@@ -389,7 +389,7 @@ func (client *Client) CreateDelicatedKubernetesCluster(request *DelicatedKuberne
 	return response, nil
 }
 
-//Create ManagedKubernetes Cluster
+// Create ManagedKubernetes Cluster
 func (client *Client) CreateManagedKubernetesCluster(request *ManagedKubernetesClusterCreationRequest) (*ClusterCommonResponse, error) {
 	response := &ClusterCommonResponse{}
 	path := "/clusters"
@@ -405,7 +405,7 @@ func (client *Client) CreateManagedKubernetesCluster(request *ManagedKubernetesC
 	return response, nil
 }
 
-//ScaleKubernetesCluster
+// ScaleKubernetesCluster
 func (client *Client) ScaleOutKubernetesCluster(clusterId string, request *ScaleOutKubernetesClusterRequest) (*ClusterCommonResponse, error) {
 	response := &ClusterCommonResponse{}
 	err := client.Invoke("", http.MethodPost, fmt.Sprintf("/api/v2/clusters/%s", clusterId), nil, request, response)
@@ -416,14 +416,14 @@ func (client *Client) ScaleOutKubernetesCluster(clusterId string, request *Scale
 	return response, nil
 }
 
-//DeleteClusterNodes
+// DeleteClusterNodes
 type DeleteKubernetesClusterNodesRequest struct {
 	ReleaseNode bool     `json:"release_node"` //if set to true, the ecs instance will be released
 	Nodes       []string `json:"nodes"`        //the format is regionId.instanceId|Ip ,for example  cn-hangzhou.192.168.1.2 or cn-hangzhou.i-abc
 	DrainNode   bool     `json:"drain_node"`   //same as Nodes
 }
 
-//DeleteClusterNodes
+// DeleteClusterNodes
 func (client *Client) DeleteKubernetesClusterNodes(clusterId string, request *DeleteKubernetesClusterNodesRequest) (*common.Response, error) {
 	response := &common.Response{}
 	err := client.Invoke("", http.MethodPost, fmt.Sprintf("/api/v2/clusters/%s/nodes/remove", clusterId), nil, request, response)
@@ -434,7 +434,7 @@ func (client *Client) DeleteKubernetesClusterNodes(clusterId string, request *De
 	return response, nil
 }
 
-//Cluster definition
+// Cluster definition
 type KubernetesClusterDetail struct {
 	RegionId common.Region `json:"region_id"`
 
@@ -473,14 +473,14 @@ type KubernetesClusterDetail struct {
 	Parameters        map[string]interface{} `json:"parameters"`
 }
 
-//GetMetaData
+// GetMetaData
 func (c *KubernetesClusterDetail) GetMetaData() map[string]interface{} {
 	m := make(map[string]interface{})
 	_ = json.Unmarshal([]byte(c.MetaData), &m)
 	return m
 }
 
-//查询集群详情
+// 查询集群详情
 func (client *Client) DescribeKubernetesClusterDetail(clusterId string) (*KubernetesClusterDetail, error) {
 	cluster := &KubernetesClusterDetail{}
 	err := client.Invoke("", http.MethodGet, "/clusters/"+clusterId, nil, nil, cluster)
@@ -490,7 +490,7 @@ func (client *Client) DescribeKubernetesClusterDetail(clusterId string) (*Kubern
 	return cluster, nil
 }
 
-//DeleteKubernetesCluster
+// DeleteKubernetesCluster
 func (client *Client) DeleteKubernetesCluster(clusterId string) error {
 	return client.Invoke("", http.MethodDelete, "/clusters/"+clusterId, nil, nil, nil)
 }

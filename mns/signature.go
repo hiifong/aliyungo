@@ -5,12 +5,12 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/util"
 )
 
 const HeaderMNSPrefix = "x-mns-"
 
-//授权签名
+// 授权签名
 func (client *Client) SignRequest(req *request, payload []byte) {
 
 	//	SignString = VERB + "\n"
@@ -58,7 +58,7 @@ func canonicalizeResource(req *request) string {
 	return canonicalizedResource
 }
 
-//Have to break the abstraction to append keys with lower case.
+// Have to break the abstraction to append keys with lower case.
 func canonicalizeHeader(headers map[string]string) string {
 	var canonicalizedHeaders []string
 

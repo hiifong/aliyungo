@@ -1,6 +1,6 @@
 package cdn
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/hiifong/aliyungo/common"
 
 type AddDomainRequest struct {
 	DomainName string

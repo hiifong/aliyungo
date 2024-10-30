@@ -1,7 +1,7 @@
 package oss
 
 import (
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/util"
 	//"log"
 	"net/http"
 	"net/url"
@@ -100,7 +100,7 @@ func (client *Client) signRequest(request *request) {
 	}
 }
 
-//Have to break the abstraction to append keys with lower case.
+// Have to break the abstraction to append keys with lower case.
 func canonicalizeHeader(headers http.Header) (newHeaders http.Header, result string) {
 	var canonicalizedHeaders []string
 	newHeaders = http.Header{}

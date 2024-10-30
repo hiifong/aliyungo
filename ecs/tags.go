@@ -1,6 +1,6 @@
 package ecs
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/hiifong/aliyungo/common"
 
 type TagResourceType string
 

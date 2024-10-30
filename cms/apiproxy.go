@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/denverdino/aliyungo/cms/util"
+	"github.com/hiifong/aliyungo/cms/util"
 	//	"fmt"
 	"encoding/json"
 	"errors"

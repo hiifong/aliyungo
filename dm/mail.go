@@ -3,7 +3,7 @@ package dm
 import (
 	"net/http"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 type SendEmailArgs struct {
@@ -49,4 +49,45 @@ type SendSingleMailArgs struct {
 
 func (this *Client) SendSingleMail(args *SendSingleMailArgs) error {
 	return this.InvokeByAnyMethod(http.MethodPost, SingleSendMail, "", args, &common.Response{})
+}
+
+// https://help.aliyun.com/zh/direct-mail/delivery-overview?spm=a2c4g.11186623.help-menu-29412.d_8_10.1ecd453dIYbvlg
+
+type SenderStatisticsDetailByParamArgs struct {
+	AccountName string `json:"AccountName,omitempty"` // 发新地址
+	TagName     string `json:"TagName,omitempty"`     // 邮件标签
+	StartTime   string `json:"StartTime,omitempty"`   // 起始时间
+	EndTime     string `json:"EndTime,omitempty"`     // 结束时间
+	ToAddress   string `json:"ToAddress,omitempty"`   // 收心地址
+	Status      int    `json:"Status,omitempty"`      // 投递结果
+	Length      int    `json:"Length,omitempty"`      // 请求返回的结果数目，1-100
+	NextStart   string `json:"NextStart,omitempty"`   // 分页用
+}
+
+type SenderStatisticsDetailByParamResponse struct {
+	common.Response
+	Data struct {
+		MailDetail []MailDetail `json:"mailDetail"`
+	} `json:"data"`
+	NextStart string
+}
+
+type MailDetail struct {
+	ToAddress           string
+	LastUpdateTime      string
+	UtcLastUpdateTime   int
+	AccountName         string
+	Message             string
+	Status              int
+	Subject             string
+	ErrorClassification string
+}
+
+func (this *Client) SenderStatisticsDetailByParam(args *SenderStatisticsDetailByParamArgs) (resp *SenderStatisticsDetailByParamResponse, err error) {
+	resp = &SenderStatisticsDetailByParamResponse{}
+	err = this.InvokeByAnyMethod(http.MethodPost, SenderStatisticsDetailByParam, "", args, resp)
+	if err != nil {
+		return nil, err
+	}
+	return resp, nil
 }

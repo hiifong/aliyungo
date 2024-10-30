@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/util"
 )
 
 const HeaderSLSPrefix1 = "x-log-"
@@ -65,7 +65,7 @@ func canonicalizeResource(req *request) string {
 	return canonicalizedResource
 }
 
-//Have to break the abstraction to append keys with lower case.
+// Have to break the abstraction to append keys with lower case.
 func canonicalizeHeader(headers map[string]string) string {
 	var canonicalizedHeaders []string
 

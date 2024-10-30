@@ -7,7 +7,7 @@ import (
 
 	"log"
 
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/util"
 )
 
 func (client *Client) signRequest(request *http.Request) {
@@ -34,7 +34,7 @@ func (client *Client) signRequest(request *http.Request) {
 
 const headerOSSPrefix = "x-acs-"
 
-//Have to break the abstraction to append keys with lower case.
+// Have to break the abstraction to append keys with lower case.
 func canonicalizeHeader(headers http.Header) (newHeaders http.Header, result string) {
 	var canonicalizedHeaders []string
 	newHeaders = http.Header{}

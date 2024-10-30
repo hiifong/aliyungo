@@ -3,7 +3,7 @@ package location
 import (
 	"testing"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 func TestDescribeEndpoint(t *testing.T) {

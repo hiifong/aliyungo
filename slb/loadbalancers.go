@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/common"
+	"github.com/hiifong/aliyungo/util"
 )
 
 type AddressType string
@@ -430,7 +430,7 @@ type ServiceManagedControlResponse struct {
 	common.Response
 }
 
-//api: https://yuque.antfin-inc.com/docs/share/63b5a2d3-6fb3-4bd7-a50e-c4b385b866fd?#
+// api: https://yuque.antfin-inc.com/docs/share/63b5a2d3-6fb3-4bd7-a50e-c4b385b866fd?#
 func (client *Client) ServiceManagedControl(args *ServiceManagedControlArgs) (err error) {
 	response := &ServiceManagedControlResponse{}
 	err = client.Invoke("ServiceManagedControl", args, response)

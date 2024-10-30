@@ -1,11 +1,10 @@
 package slb
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/hiifong/aliyungo/common"
 
 type DescribeRegionsArgs struct {
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&regiontype
 type RegionType struct {
 	RegionId  common.Region

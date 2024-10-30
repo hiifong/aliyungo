@@ -1,11 +1,10 @@
 package pvtz
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/hiifong/aliyungo/common"
 
 type DescribeRegionsArgs struct {
 }
 
-//
 type RegionType struct {
 	RegionId   common.Region
 	RegionName string

@@ -3,8 +3,8 @@ package ecs
 import (
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/common"
+	"github.com/hiifong/aliyungo/util"
 )
 
 // Types of disks
@@ -80,7 +80,6 @@ type DescribeDisksArgs struct {
 	common.Pagination
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&diskitemtype
 type DiskItemType struct {
 	DiskId             string
@@ -269,7 +268,6 @@ type ResizeDiskResponse struct {
 	common.Response
 }
 
-//
 // ResizeDisk can only support to enlarge disk size
 // You can read doc at https://help.aliyun.com/document_detail/25522.html
 func (client *Client) ResizeDisk(diskId string, sizeGB int) error {

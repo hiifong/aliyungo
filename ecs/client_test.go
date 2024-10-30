@@ -1,7 +1,7 @@
 package ecs
 
 import (
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 	"github.com/magiconair/properties/assert"
 	"os"
 	"testing"

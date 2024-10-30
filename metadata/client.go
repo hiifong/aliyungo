@@ -16,7 +16,7 @@ import (
 
 	"os"
 
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/util"
 )
 
 const (
@@ -273,7 +273,6 @@ func (m *MetaData) RamRoleToken(role string) (RoleAuth, error) {
 
 type requestMock func(resource string) (string, error)
 
-//
 type MetaDataRequest struct {
 	version      string
 	resourceType string

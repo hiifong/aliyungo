@@ -3,7 +3,7 @@ package cdn
 import (
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 type RefreshRequest struct {

@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/opentracing/opentracing-go/ext"
 	"io/ioutil"
 	"log"
 	"net"
@@ -16,7 +15,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/denverdino/aliyungo/util"
+	"github.com/opentracing/opentracing-go/ext"
+
+	"github.com/hiifong/aliyungo/util"
 	"github.com/opentracing/opentracing-go"
 )
 
@@ -67,7 +68,7 @@ func (client *Client) NewInit(endpoint, version, accessKeyId, accessKeySecret, s
 }
 
 // Initialize properties of a client instance including regionID
-//only for hz regional Domain
+// only for hz regional Domain
 func (client *Client) NewInit4RegionalDomain(endpoint, version, accessKeyId, accessKeySecret, serviceCode string, regionID Region) {
 	client.Init(endpoint, version, accessKeyId, accessKeySecret)
 	client.serviceCode = serviceCode
@@ -152,7 +153,7 @@ func (client *Client) InitClient() *Client {
 }
 
 // Intialize client object when all properties are ready
-//only for regional domain hz
+// only for regional domain hz
 func (client *Client) InitClient4RegionalDomain() *Client {
 	client.InitClient()
 	//set endpoint
@@ -165,14 +166,14 @@ func (client *Client) NewInitForAssumeRole(endpoint, version, accessKeyId, acces
 	client.securityToken = securityToken
 }
 
-//getLocationEndpoint
+// getLocationEndpoint
 func (client *Client) getEndpointByLocation() string {
 	locationClient := NewLocationClient(client.AccessKeyId, client.AccessKeySecret, client.securityToken)
 	locationClient.SetDebug(true)
 	return locationClient.DescribeOpenAPIEndpoint(client.regionID, client.serviceCode)
 }
 
-//NewClient using location service
+// NewClient using location service
 func (client *Client) setEndpointByLocation(region Region, serviceCode, accessKeyId, accessKeySecret, securityToken string) {
 	locationClient := NewLocationClient(accessKeyId, accessKeySecret, securityToken)
 	locationClient.SetDebug(true)
@@ -255,7 +256,7 @@ func (client *Client) WithRegionID(regionID Region) *Client {
 	return client
 }
 
-//WithServiceCode sets serviceCode
+// WithServiceCode sets serviceCode
 func (client *Client) WithServiceCode(serviceCode string) *Client {
 	client.SetServiceCode(serviceCode)
 	return client
@@ -332,7 +333,7 @@ func (client *Client) SetRegionID(regionID Region) {
 	client.regionID = regionID
 }
 
-//SetServiceCode sets serviceCode
+// SetServiceCode sets serviceCode
 func (client *Client) SetServiceCode(serviceCode string) {
 	client.serviceCode = serviceCode
 }
@@ -366,7 +367,7 @@ func (client *Client) SetUserAgent(userAgent string) {
 	client.userAgent = userAgent
 }
 
-//set SecurityToken
+// set SecurityToken
 func (client *Client) SetSecurityToken(securityToken string) {
 	client.securityToken = securityToken
 }
@@ -660,8 +661,8 @@ func (client *Client) InvokeByFlattenMethod(action string, args interface{}, res
 }
 
 // Invoke sends the raw HTTP request for ECS services
-//改进了一下上面那个方法，可以使用各种Http方法
-//2017.1.30 增加了一个path参数，用来拓展访问的地址
+// 改进了一下上面那个方法，可以使用各种Http方法
+// 2017.1.30 增加了一个path参数，用来拓展访问的地址
 func (client *Client) InvokeByAnyMethod(method, action, path string, args interface{}, response interface{}) (err error) {
 	if err := client.ensureProperties(); err != nil {
 		return err
@@ -780,7 +781,7 @@ func (client *Client) InvokeByAnyMethod(method, action, path string, args interf
 		}
 		return ecsError
 	}
-
+	//fmt.Printf("body: %s\n", string(body))
 	err = json.Unmarshal(body, response)
 	//log.Printf("%++v", response)
 	if err != nil {

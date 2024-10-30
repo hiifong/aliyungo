@@ -1,7 +1,7 @@
 package cms
 
 import (
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 type CommonAlarmResponse struct {
@@ -60,7 +60,7 @@ type CreateAlarmResponse struct {
 	Data string
 }
 
-//see doc at https://help.aliyun.com/document_detail/51910.html?spm=5176.doc51912.6.627.61vKOf
+// see doc at https://help.aliyun.com/document_detail/51910.html?spm=5176.doc51912.6.627.61vKOf
 func (client *CMSClient) CreateAlarm(args *CreateAlarmArgs) (*CreateAlarmResponse, error) {
 	response := &CreateAlarmResponse{}
 	err := client.InvokeByAnyMethod(METHOD_POST, "CreateAlarm", "", args, response)
@@ -79,7 +79,7 @@ type DeleteAlarmResponse struct {
 	Data string
 }
 
-//see doc at https://help.aliyun.com/document_detail/51912.html?spm=5176.doc51915.6.628.ozEQet
+// see doc at https://help.aliyun.com/document_detail/51912.html?spm=5176.doc51915.6.628.ozEQet
 func (client *CMSClient) DeleteAlarm(id string) error {
 	args := &DeleteAlarmArgs{Id: id}
 	response := &DeleteAlarmResponse{}
@@ -107,7 +107,7 @@ type ListAlarmResponse struct {
 	}
 }
 
-//see doc at https://help.aliyun.com/document_detail/51915.html?spm=5176.doc51914.6.629.Yz4ZjF
+// see doc at https://help.aliyun.com/document_detail/51915.html?spm=5176.doc51914.6.629.Yz4ZjF
 func (client *CMSClient) ListAlarm(args *ListAlarmArgs) (*ListAlarmResponse, error) {
 	response := &ListAlarmResponse{}
 	err := client.Invoke("ListAlarm", args, response)
@@ -125,7 +125,7 @@ type DisableAlarmResponse struct {
 	CommonAlarmResponse
 }
 
-//see doc at https://help.aliyun.com/document_detail/51914.html?spm=5176.doc51915.6.630.YUybwN
+// see doc at https://help.aliyun.com/document_detail/51914.html?spm=5176.doc51915.6.630.YUybwN
 func (client *CMSClient) DisableAlarm(id string) error {
 	args := &DisableAlarmArgs{Id: id}
 	response := &DisableAlarmResponse{}
@@ -142,7 +142,7 @@ type EnableAlarmResponse struct {
 	CommonAlarmResponse
 }
 
-//see doc at https://help.aliyun.com/document_detail/51913.html?spm=5176.doc51910.6.631.3zgHyK
+// see doc at https://help.aliyun.com/document_detail/51913.html?spm=5176.doc51910.6.631.3zgHyK
 func (client *CMSClient) EnableAlarm(id string) error {
 	args := &EnableAlarmArgss{Id: id}
 	response := &EnableAlarmResponse{}
@@ -170,7 +170,7 @@ type UpdateAlarmResponse struct {
 	CommonAlarmResponse
 }
 
-//see doc at https://help.aliyun.com/document_detail/51911.html?spm=5176.doc51913.6.632.IgBO9g
+// see doc at https://help.aliyun.com/document_detail/51911.html?spm=5176.doc51913.6.632.IgBO9g
 func (client *CMSClient) UpdateAlarm(args *UpdateAlarmArgs) error {
 	response := &UpdateAlarmResponse{}
 	err := client.Invoke("UpdateAlarm", args, response)
@@ -194,7 +194,7 @@ type ListAlarmHistoryResponse struct {
 	}
 }
 
-//see doc at https://help.aliyun.com/document_detail/51916.html?spm=5176.doc51911.6.633.KPOcwc
+// see doc at https://help.aliyun.com/document_detail/51916.html?spm=5176.doc51911.6.633.KPOcwc
 func (client *CMSClient) ListAlarmHistory(args *ListAlarmHistoryArgs) (*ListAlarmHistoryResponse, error) {
 	response := &ListAlarmHistoryResponse{}
 	err := client.Invoke("ListAlarmHistory", args, response)
@@ -215,7 +215,7 @@ type ListContactGroupResponse struct {
 	Total      int      //符合条件数据总数
 }
 
-//see doc at https://help.aliyun.com/document_detail/52315.html?spm=5176.doc51916.6.634.TDR72G
+// see doc at https://help.aliyun.com/document_detail/52315.html?spm=5176.doc51916.6.634.TDR72G
 func (client *CMSClient) ListContactGroup(args *ListContactGroupArgs) (*ListContactGroupResponse, error) {
 	response := &ListContactGroupResponse{}
 	err := client.Invoke("ListContactGroup", args, response)

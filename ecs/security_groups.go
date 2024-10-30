@@ -1,8 +1,8 @@
 package ecs
 
 import (
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/common"
+	"github.com/hiifong/aliyungo/util"
 )
 
 type NicType string
@@ -52,7 +52,6 @@ type DescribeSecurityGroupAttributeArgs struct {
 	Direction       Direction // enum ingress egress
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&permissiontype
 type PermissionType struct {
 	IpProtocol              IpProtocol
@@ -84,7 +83,6 @@ type DescribeSecurityGroupAttributeResponse struct {
 	InnerAccessPolicy GroupInnerAccessPolicy
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/securitygroup&describesecuritygroupattribute
 func (client *Client) DescribeSecurityGroupAttribute(args *DescribeSecurityGroupAttributeArgs) (response *DescribeSecurityGroupAttributeResponse, err error) {
 	response = &DescribeSecurityGroupAttributeResponse{}
@@ -102,7 +100,6 @@ type DescribeSecurityGroupsArgs struct {
 	common.Pagination
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&securitygroupitemtype
 type SecurityGroupItemType struct {
 	SecurityGroupId   string

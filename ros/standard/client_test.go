@@ -2,7 +2,7 @@ package standard
 
 import (
 	"fmt"
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 	"testing"
 )
 

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 func TestDBPostpaidClassicInstanceCreationAndDeletion(t *testing.T) {

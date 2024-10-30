@@ -5,8 +5,8 @@ package ecs
 import (
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/common"
+	"github.com/hiifong/aliyungo/util"
 )
 
 type AllocatePublicIpAddressArgs struct {
@@ -161,7 +161,6 @@ type DescribeEipAddressesArgs struct {
 	common.Pagination
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&eipaddresssettype
 type EipAddressSetType struct {
 	RegionId           common.Region

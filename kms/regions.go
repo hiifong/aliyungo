@@ -1,6 +1,6 @@
 package kms
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/hiifong/aliyungo/common"
 
 type DescribeRegionsArgs struct {
 }

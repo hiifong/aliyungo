@@ -9,14 +9,14 @@ import (
 
 	"fmt"
 
-	"github.com/denverdino/aliyungo/ecs"
+	"github.com/hiifong/aliyungo/ecs"
 
-	"github.com/denverdino/aliyungo/ram"
+	"github.com/hiifong/aliyungo/ram"
 )
 
 /*
-  Please also set account id in env so that roles could be created test
-	 AccessKeyId=YourAccessKeyId AccessKeySecret=YourAccessKeySecret AccountId=111111111 go test -v -run=AssumeRole
+	  Please also set account id in env so that roles could be created test
+		 AccessKeyId=YourAccessKeyId AccessKeySecret=YourAccessKeySecret AccountId=111111111 go test -v -run=AssumeRole
 */
 var (
 	accountId = os.Getenv("AccountId")

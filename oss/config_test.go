@@ -3,7 +3,7 @@ package oss_test
 import (
 	"os"
 
-	"github.com/denverdino/aliyungo/oss"
+	"github.com/hiifong/aliyungo/oss"
 )
 
 //

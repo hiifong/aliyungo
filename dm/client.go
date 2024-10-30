@@ -1,14 +1,15 @@
 package dm
 
 import (
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 const (
-	EmailEndPoint   = "https://dm.aliyuncs.com/"
-	SingleSendMail  = "SingleSendMail"
-	BatchSendMail   = "BatchSendMail"
-	EmailAPIVersion = "2015-11-23"
+	EmailEndPoint                 = "https://dm.aliyuncs.com/"
+	SingleSendMail                = "SingleSendMail"
+	BatchSendMail                 = "BatchSendMail"
+	SenderStatisticsDetailByParam = "SenderStatisticsDetailByParam"
+	EmailAPIVersion               = "2015-11-23"
 )
 
 type Client struct {

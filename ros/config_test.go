@@ -3,7 +3,7 @@ package ros
 import (
 	"os"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 //Modify with your Access Key Id and Access Key Secret

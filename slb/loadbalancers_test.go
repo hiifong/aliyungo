@@ -3,7 +3,7 @@ package slb
 import (
 	"testing"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 func TestLoadBalancer(t *testing.T) {

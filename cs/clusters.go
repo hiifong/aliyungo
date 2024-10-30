@@ -12,8 +12,8 @@ import (
 
 	"encoding/json"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/ecs"
+	"github.com/hiifong/aliyungo/common"
+	"github.com/hiifong/aliyungo/ecs"
 )
 
 type ClusterState string
@@ -116,7 +116,7 @@ type ClusterCommonResponse struct {
 	InstanceId string `json:"instanceId"`
 }
 
-//Deprecated
+// Deprecated
 func (client *Client) CreateCluster(region common.Region, args *ClusterCreationArgs) (cluster ClusterCommonResponse, err error) {
 	err = client.Invoke(region, http.MethodPost, "/clusters", nil, args, &cluster)
 	return

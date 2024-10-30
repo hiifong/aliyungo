@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/common"
+	"github.com/hiifong/aliyungo/util"
 )
 
 // ImageOwnerAlias represents image owner
@@ -65,7 +65,6 @@ type DescribeImagesResponse struct {
 	}
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&diskdevicemapping
 type DiskDeviceMapping struct {
 	SnapshotId string
@@ -80,7 +79,6 @@ type DiskDeviceMapping struct {
 	OSSObject string
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&imagetype
 type ImageType struct {
 	ImageId            string
@@ -297,7 +295,7 @@ type ImportImageResponse struct {
 // Default timeout value for WaitForImageReady method
 const ImageDefaultTimeout = 120
 
-//Wait Image ready
+// Wait Image ready
 func (client *Client) WaitForImageReady(regionId common.Region, imageId string, timeout int) error {
 	if timeout <= 0 {
 		timeout = ImageDefaultTimeout

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 func TestSecurityGroups(t *testing.T) {

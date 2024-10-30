@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/denverdino/aliyungo/common"
 	"github.com/golang/protobuf/proto"
+	"github.com/hiifong/aliyungo/common"
 	//"time"
 	"os"
 	"strconv"

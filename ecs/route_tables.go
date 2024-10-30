@@ -3,8 +3,8 @@ package ecs
 import (
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/hiifong/aliyungo/common"
+	"github.com/hiifong/aliyungo/util"
 )
 
 type DescribeRouteTablesArgs struct {
@@ -39,7 +39,6 @@ type NextHopItemType struct {
 	NextHopId   string
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&routeentrysettype
 type RouteEntrySetType struct {
 	RouteTableId         string
@@ -52,7 +51,6 @@ type RouteEntrySetType struct {
 	Status               RouteEntryStatus // enum Pending | Available | Modifying
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&routetablesettype
 type RouteTableSetType struct {
 	VRouterId    string

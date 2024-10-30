@@ -3,7 +3,7 @@ package push
 import (
 	"net/http"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/hiifong/aliyungo/common"
 )
 
 const (
@@ -24,7 +24,7 @@ const (
 	PushIOSAPNENVDevelopment = "DEV"
 )
 
-//高级推送参数
+// 高级推送参数
 type PushArgs struct {
 	/*----基础参数----*/
 	//AppKey信息
